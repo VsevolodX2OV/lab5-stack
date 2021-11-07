@@ -52,3 +52,5 @@ class StackTwo
 };
 
 #endif  // INCLUDE_STACKSECOND_HPP_
+
+
