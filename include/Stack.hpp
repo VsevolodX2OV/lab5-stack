@@ -5,6 +5,7 @@
 #define INCLUDE_STACK_HPP_
 
 #include <memory>
+#include <utility>
 
 template <typename T>
 class Stack
@@ -40,7 +41,7 @@ class Stack
     typedef  std::unique_ptr < StackObj> StackObjPtr;
     StackObjPtr last;
     T val;
-    explicit StackObj(StackObjPtr ref = nullptr, T valu= T()) {
+    explicit StackObj(StackObjPtr ref = nullptr, T valu = T()) {
       val = valu;
       last = std::move(ref);
     }
@@ -49,3 +50,4 @@ class Stack
 };
 
 #endif // INCLUDE_STACK_HPP_
+

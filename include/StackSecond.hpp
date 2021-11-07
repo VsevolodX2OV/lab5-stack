@@ -3,6 +3,10 @@
 #ifndef INCLUDE_STACKSECOND_HPP_
 #define INCLUDE_STACKSECOND_HPP_
 
+#include <utility>
+#include <memory>
+
+
 template <typename T>
 class StackTwo
 {
@@ -29,7 +33,7 @@ class StackTwo
   }
   T pop() {
     if (ref!= nullptr) {
-      T del =std::move( ref->val);
+      T del = std::move(ref->val);
       ref = std::move(ref->last);
       return del;
     }
@@ -39,8 +43,8 @@ class StackTwo
   struct StackObj{
     std::unique_ptr<StackObj> last;
     T val;
-    explicit StackObj(std::unique_ptr<StackObj> ref = nullptr, T&& valu= T()) {
-      val=std::forward<T>(valu);
+    explicit StackObj(std::unique_ptr<StackObj> ref = nullptr, T&& valu = T()) {
+      val = std::forward<T>(valu);
       last = std::move(ref);
     }
   };
