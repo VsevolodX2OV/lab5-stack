@@ -19,7 +19,6 @@ class Stack
     auto mov = std::unique_ptr<StackObj>(new StackObj(std::move(ref),
                                                       std::move(value)));
     ref = std::move(mov);
-    //len++;
   }
   void push(const T& value) {
     auto mov = std::unique_ptr<StackObj>(new StackObj(std::move(ref), (value)));
@@ -49,5 +48,5 @@ class Stack
   std::unique_ptr<StackObj> ref;
 };
 
-#endif // INCLUDE_STACK_HPP_
+#endif
 
