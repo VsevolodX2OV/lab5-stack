@@ -48,5 +48,5 @@ class Stack
   std::unique_ptr<StackObj> ref;
 };
 
-#endif
+#endif // INCLUDE_STACK_HPP_
 
