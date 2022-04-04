@@ -1,4 +1,4 @@
-// Copyright 2021 by FORTYSS
+//Copyright 2021 by Winter Solider
 
 #ifndef INCLUDE_STACKSECOND_HPP_
 #define INCLUDE_STACKSECOND_HPP_
@@ -6,10 +6,8 @@
 #include <utility>
 #include <memory>
 
-
 template <typename T>
-class StackTwo
-{
+class StackTwo {
  public:
   StackTwo(const StackTwo&) = delete;
   StackTwo& operator = (const StackTwo&) = delete;
@@ -19,18 +17,22 @@ class StackTwo
       pop();
     }
   }
+
   template <typename ... Args>
   void push_emplace(Args&&... value) {
     ref = std::move(std::make_unique<StackObj>(
         StackObj(std::move(ref), std::move(T(std::forward<Args>(value)...)))));
   }
+
   void push(T&& value) {
     ref = std::move(std::make_unique<StackObj>(
         StackObj(std::move(ref), std::forward<T>(value))));
   }
+
   const T& head() const {
     return ref->val;
   }
+
   T pop() {
     if (ref!= nullptr) {
       T del = std::move(ref->val);
@@ -39,6 +41,7 @@ class StackTwo
     }
     throw std::runtime_error("Stack is empty");
   }
+
  private:
   struct StackObj{
     std::unique_ptr<StackObj> last;

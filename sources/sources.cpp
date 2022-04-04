@@ -1,7 +1,6 @@
-//Copyright by C-developers1488
+//Copyright 2021 by Winter Solider
 
 #include <stdexcept>
-
 
 auto example() -> void {
   throw std::runtime_error("not implemented");

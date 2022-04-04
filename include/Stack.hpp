@@ -1,4 +1,4 @@
-//Copyright by C-developers1488
+//Copyright 2021 by Winter Solider
 
 
 #ifndef INCLUDE_STACK_HPP_
@@ -8,23 +8,26 @@
 #include <utility>
 
 template <typename T>
-class Stack
-{
+class Stack {
+
  public:
   Stack(const Stack&) = delete;
   Stack& operator = (const Stack&) = delete;
   Stack(): ref(nullptr) {
   }
+
   void push(T&& value) {
     auto mov = std::unique_ptr<StackObj>(new StackObj(std::move(ref),
                                                       std::move(value)));
     ref = std::move(mov);
     //len++;
   }
+
   void push(const T& value) {
     auto mov = std::unique_ptr<StackObj>(new StackObj(std::move(ref), (value)));
     ref = std::move(mov);
   }
+
   T pop() {
     if (ref!= nullptr) {
       auto del = ref->val;
@@ -33,11 +36,13 @@ class Stack
     }
     throw std::runtime_error("Stack is empty");
   }
+
   const T& head() const {
     return ref->val;
   }
+
  private:
-  struct StackObj{
+  struct StackObj {
     typedef  std::unique_ptr < StackObj> StackObjPtr;
     StackObjPtr last;
     T val;
@@ -46,6 +51,7 @@ class Stack
       last = std::move(ref);
     }
   };
+
   std::unique_ptr<StackObj> ref;
 };
 
