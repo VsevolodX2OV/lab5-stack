@@ -1,4 +1,4 @@
-// Copyright 2021 by FORTYSS
+//Copyright 2021 by Winter Solider
 
 #ifndef INCLUDE_STACKSECOND_HPP_
 #define INCLUDE_STACKSECOND_HPP_

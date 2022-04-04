@@ -1,4 +1,4 @@
-//Copyright by C-developers1488
+//Copyright 2021 by Winter Solider
 
 
 #ifndef INCLUDE_STACK_HPP_
