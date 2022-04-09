@@ -2,5 +2,5 @@
 
 
 int main() {
-  std::cout<<"All system is online!";
+  std::cout<<"Everything is OK";
 }
